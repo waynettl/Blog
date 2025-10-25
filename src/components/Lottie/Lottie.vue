@@ -13,7 +13,6 @@ import {
 } from "vue"
 import lottie, { AnimationItem } from "lottie-web"
 import { nanoid } from "nanoid"
-import { getAssets } from "@/utils/util"
 import { IProps } from "@/components/Lottie/types"
 
 const props = withDefaults(defineProps<IProps>(), {
@@ -31,6 +30,10 @@ const className = computed(() => {
 const container = ref<HTMLDivElement>()
 const instance = ref<AnimationItem>()
 
+function getAssetUrl(filename: string): string {
+  return new URL(`../../assets/lottie/creations/${filename}`, import.meta.url)
+    .href
+}
 function mouseenter() {
   instance.value?.play()
   emits("mouseenter", instance.value as AnimationItem)
@@ -47,7 +50,7 @@ watch(
       if (container.value) {
         instance.value = lottie.loadAnimation({
           container: container.value,
-          path: props.path ?? getAssets(`${props.fileName}.json`, "lottie"),
+          path: props.path ?? getAssetUrl(`${props.fileName}.json`),
           loop: true,
           autoplay: true,
           ...props.options

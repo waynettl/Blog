@@ -37,37 +37,34 @@
 </template>
 
 <script lang="ts" setup>
-import { getAssets } from "@/utils/util"
 import { Creation } from "./types"
+
+function getAssetUrl(filename: string): string {
+  return new URL(`../../../assets/image/creations/${filename}`, import.meta.url)
+    .href
+}
 
 const list: Creation[] = [
   {
     title: "Swagger",
     synopsis: "可视化 RESTful 风格的 Web 文档服务",
     descriptions: ["REST API 文档", "自动生成测试", "支持多种语言和框架"],
-    img: getAssets("creations/swagger.png"),
+    img: getAssetUrl("swagger.png"),
     link: "https://api.daixu.cn/swagger"
   },
   {
     title: "最终选择",
     synopsis: "摆脱困难选择症，随机为您做出选择",
     descriptions: ["不再选择，心情更美好！"],
-    img: getAssets("creations/final-choice.png"),
+    img: getAssetUrl("final-choice.png"),
     link: "https://daixu-cn.github.io/Choice/"
   },
   {
     title: "Lemon",
     synopsis: "Lemon成长相册",
     descriptions: ["我的可爱小柠檬！"],
-    img: getAssets("creations/lemon.png"),
+    img: getAssetUrl("lemon.png"),
     link: "https://photos.app.goo.gl/VxBFkMFJUEr4H4Pz6/"
-  },
-  {
-    title: "Learn English",
-    synopsis: "English notes, may contain errors, for reference only",
-    descriptions: ["英语学习记录，内容仅供参考，可能存在错误，请勿作为标准"],
-    img: getAssets("creations/english.png"),
-    link: "https://english.daixu.cn/"
   }
 ]
 </script>

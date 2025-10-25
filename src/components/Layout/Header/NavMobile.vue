@@ -8,11 +8,7 @@
       size="280px"
     >
       <div class="user">
-        <el-image
-          :src="getAssets('mobile-bg.png')"
-          fit="cover"
-          class="mobile-bg"
-        />
+        <el-image :src="_MobileBg" fit="cover" class="mobile-bg" />
         <div class="user-info">
           <el-image :src="`${DOMAIN}/avatar.png`" fit="cover" class="avatar" />
           <div class="signature">
@@ -52,9 +48,9 @@ import { ref } from "vue"
 import { useRoute, useRouter } from "vue-router"
 import menus, { adminMenus } from "@/global/menus"
 import useUserStore from "@/store/user"
-import { getAssets } from "@/utils/util"
 import { DOMAIN } from "@/global/env"
 import User from "./User.vue"
+import _MobileBg from "@/assets/image/mobile-bg.png"
 
 const route = useRoute()
 const router = useRouter()

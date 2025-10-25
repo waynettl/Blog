@@ -5,5 +5,6 @@
 
 /public/*
 src/assets/lottie/*
+dist/**
 
 src/global/iconfont.ts
